@@ -30,6 +30,7 @@ dependencies:
   cupertino_icons: ^0.1.3
   boxicons_flutter: ^1.1.0
   feather_icons_flutter: ^4.7.4
+  fuzzy: ^0.2.3
   
 
 dev_dependencies:
@@ -69,11 +70,16 @@ flutter:
   #       - asset: fonts/Schyler-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+  fonts:
+    - family: SF Pro Text
+      fonts:
+        - asset: fonts/SF Pro Text Regular.ttf
+    - family: SF Pro Text Bold
+      fonts:
+        - asset: fonts/SF Pro Text Bold.ttf
+    - family: SF Pro Text Light
+      fonts:
+        - asset: fonts/SF Pro Text Light.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

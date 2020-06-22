@@ -50,30 +50,36 @@ class _BottomNavState extends State<BottomNav> {
           onTap: () {
             widget.onBottomNavClick(i);
           },
-          child: Column(
-            children: <Widget>[
-              Container(
-                width: i == 2 ? 48 : 24,
-                height: 32,
-                decoration: BoxDecoration(
-                  color: i == 2 ? ThemeColors.red : ThemeColors.black,
-                  borderRadius: BorderRadius.all(Radius.circular(2))
-                ),
-                child: Center(child: icons[i])
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Center(
-                child: Text(
-                  labels[i],
-                  style: TextStyle(
-                    color: widget.selectedPage == i ? ThemeColors.gray[100] : ThemeColors.black,
-                    fontSize: 11
+          child: Center(
+            child: Column(
+              children: <Widget>[
+                Container(
+                  width: i == 2 ? 48 : 24,
+                  height: 32,
+                  decoration: BoxDecoration(
+                    color: i == 2 ? ThemeColors.red : ThemeColors.black,
+                    borderRadius: BorderRadius.all(Radius.circular(2))
                   ),
+                  child: Opacity(
+                    opacity: widget.selectedPage == i || i == 2 ? 1 : 0.5,
+                    child: Center(child: icons[i])
+                  )
                 ),
-              )
-            ],
+                SizedBox(
+                  height: 10,
+                ),
+                Center(
+                  child: Text(
+                    labels[i],
+                    style: TextStyle(
+                      color: widget.selectedPage == i ? ThemeColors.gray[100] : ThemeColors.black,
+                      fontSize: 11,
+                      fontFamily: "Roboto"
+                    ),
+                  ),
+                )
+              ],
+            ),
           )
         )
       );

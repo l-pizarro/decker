@@ -4,10 +4,12 @@ import 'package:decker/theme.dart';
 class PageContainer extends StatefulWidget {
   final Size size;
   final int selectedPage;
+  final List<Widget> pages;
 
   PageContainer({
     this.size,
-    this.selectedPage
+    this.pages,
+    this.selectedPage,
   });
 
   @override
@@ -22,20 +24,13 @@ class _PageContainerState extends State<PageContainer> {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> pages = [
-      Column(children: <Widget>[Text("0")]),
-      Column(children: <Widget>[Text("1")]),
-      Column(children: <Widget>[Text("2")]),
-      Column(children: <Widget>[Text("3")]),
-      Column(children: <Widget>[Text("4")]),
-    ];
     return Container(
       color: ThemeColors.gray[600],
       width: widget.size.width,
       child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: pages[widget.selectedPage],
+          child: widget.pages[widget.selectedPage],
         )
       )
     );
