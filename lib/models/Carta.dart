@@ -27,7 +27,7 @@ class Carta {
     }
   );
 
-  getAttributesAsString() {
+  String getAttributesAsString() {
     String attributes = "";
     if (this.atributos.length > 0) {
       this.atributos.forEach((element) {
@@ -35,5 +35,10 @@ class Carta {
       });
     }
     return attributes;
+  }
+
+  String getAllText() {
+    String allText = this.nombre + " " + getAttributesAsString() + " " + this.habilidad;
+    return allText.toLowerCase();
   }
 }

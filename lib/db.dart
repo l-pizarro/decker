@@ -117,7 +117,7 @@ class DB {
         tipoCarta: 0,
         raza: 5,
         frecuencia: 1,
-        habilidad: "Cuando Descartes este Aliado, juégalo sin pagar su coste. Cuando ataca, Roba una carta y Descarta una carta. Si Descartas una Bestia, este Aliado gana 2 de Fuerza y es Indestructible hasta la Fase Final.",
+        habilidad: "Cuando Descartes este Aliado ñandú, juégalo sin pagar su coste. Cuando ataca, Roba una carta y Descarta una carta. Si Descartas una Bestia, este Aliado gana 2 de Fuerza y es Indestructible hasta la Fase Final.",
         atributos: ["Furia"]
       ),
       Carta(

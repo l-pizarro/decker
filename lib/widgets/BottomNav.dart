@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+// Styling
 import 'package:decker/theme.dart';
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:boxicons_flutter/boxicons_flutter.dart';
