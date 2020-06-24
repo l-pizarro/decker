@@ -103,17 +103,32 @@ class _MainViewState extends State<MainView> {
     });
     setState(() {
       this.filteredCards = filtered;
-      print(filtered);
-      updateListFromQuery(this.query);
     });
   }
 
   void filterByType() {
-    
+    List<Carta> filtered = [];
+    this.filteredCards.forEach((card) {
+      if (this.cardTypes[card.tipoCarta]['nombre'] == this.dropdownSelections[1]) {
+        filtered.add(card);
+      }
+    });
+    setState(() {
+      this.filteredCards = filtered;
+    });
   }
 
   void filterByFrecuency() {
-    
+    List<Carta> filtered = [];
+    this.filteredCards.forEach((card) {
+      if (this.cardFrecuencies[card.frecuencia]['nombre'] == this.dropdownSelections[2]) {
+        filtered.add(card);
+      }
+    });
+    setState(() {
+      this.filteredCards = filtered;
+    });
+    updateListFromQuery(this.query);
   }
 
   void handleBottomNavClick(int selectedPage) {
