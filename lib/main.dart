@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Decker App',
       theme: ThemeData(
-        fontFamily: 'SF Pro Text'
+        fontFamily: 'SF Pro Text',
       ),
       debugShowCheckedModeBanner: false,
       initialRoute: '/',

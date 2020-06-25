@@ -10,6 +10,9 @@ import 'package:decker/models/Carta.dart';
 import 'package:decker/widgets/PageContainer.dart';
 import 'package:decker/widgets/BottomNav.dart';
 
+// Screens
+import 'package:decker/screens/MyDecks.dart';
+
 // Database
 import 'package:decker/db.dart';
 
@@ -59,7 +62,7 @@ class _MainViewState extends State<MainView> {
       this.cardTypes = DB.getTipoCartas();
       this.cardFrecuencies = DB.getFrecuencias();
       this.cardEditions = DB.getEdiciones();
-      this.cardLoading = true;
+      this.cardLoading = false;
     });
   }
 
@@ -153,7 +156,7 @@ class _MainViewState extends State<MainView> {
         },
         queryCallBack: this.updateListFromQuery,
       ),
-      Column(children: <Widget>[Text("Mis mazos")]),
+      MyDecks(),
       Column(children: <Widget>[Text("Crear mazo")]),
       Column(children: <Widget>[Text("Favoritos")]),
       Column(children: <Widget>[Text("Mi perfil")]),
@@ -190,7 +193,8 @@ class _MainViewState extends State<MainView> {
                     fontFamily: "SF Pro Text Bold",
                     fontWeight: FontWeight.w600,
                     color: ThemeColors.gray[200],
-                    fontSize: 20
+                    fontSize: 20,
+                    letterSpacing: 0.2
                   ),
                 ),
                 SizedBox(height: 64),
@@ -212,7 +216,8 @@ class _MainViewState extends State<MainView> {
                       style: TextStyle(
                         color: ThemeColors.gray[100],
                         fontSize: 14,
-                        fontWeight: FontWeight.w500
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: 0.2
                       ),
                     ),
                   ),
@@ -231,7 +236,8 @@ class _MainViewState extends State<MainView> {
                           style: TextStyle(
                             color: ThemeColors.gray[200],
                             fontSize: 14,
-                            fontWeight: FontWeight.w500
+                            fontWeight: FontWeight.w500,
+                            letterSpacing: 0.2,
                           ),
                         ),
                       ),
@@ -257,7 +263,8 @@ class _MainViewState extends State<MainView> {
               color: ThemeColors.gray[200].withOpacity(0.6),
               fontFamily: "SF Pro Text Bold",
               fontWeight: FontWeight.w600,
-              fontSize: 14
+              fontSize: 14,
+              letterSpacing: 0.2
             ),
           ),
           SizedBox(height: 12),
@@ -272,6 +279,7 @@ class _MainViewState extends State<MainView> {
                 hint: Text(
                   hint,
                   style: TextStyle(
+                    letterSpacing: 0.2,
                     color: Colors.grey[600],
                     fontSize: 14
                   )
@@ -289,6 +297,7 @@ class _MainViewState extends State<MainView> {
                     child: Text(
                       val['nombre'],
                       style: TextStyle(
+                        letterSpacing: 0.2,
                         color: ThemeColors.gray[100],
                         fontSize: 14
                       ),

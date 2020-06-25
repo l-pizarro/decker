@@ -7,6 +7,9 @@ import 'package:decker/models/Carta.dart';
 import 'package:decker/theme.dart';
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 
+// Widgets
+import 'package:decker/widgets/LoadingIndicator.dart';
+
 
 class SearchComponent extends StatefulWidget {
   final bool loading;
@@ -49,24 +52,32 @@ class _SearchComponentState extends State<SearchComponent> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: ThemeColors.gray[600],
-      body: showSelectedCard 
-      ? fullCard(size)
-      : Column(
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              textInput(context),
-              SizedBox(width: 8),
-              filterButton(context)
-            ],
-          ),
-          widget.gridEnabled ? gridOption() : SizedBox(height: 50),
-          Expanded(
-            child: this.showGrid ? cardGrid(size) : cardList(size)
-          ),
-          SizedBox(height: 64)
-        ],
-      ),
+      body: widget.loading
+      ? Center(
+        child: loadingIndicator(size)
+      )
+      : body(size)
+    );
+  }
+
+  Widget body(Size size) {
+    return showSelectedCard
+    ? fullCard(size)
+    : Column(
+      children: <Widget>[
+        Row(
+          children: <Widget>[
+            textInput(context),
+            SizedBox(width: 8),
+            filterButton(context)
+          ],
+        ),
+        widget.gridEnabled ? gridOption() : SizedBox(height: 50),
+        Expanded(
+          child: this.showGrid ? cardGrid(size) : cardList(size)
+        ),
+        SizedBox(height: 64)
+      ],
     );
   }
 
@@ -145,6 +156,7 @@ class _SearchComponentState extends State<SearchComponent> {
       cursorColor: ThemeColors.gray[200],
       style: TextStyle(
         fontSize: 14,
+        letterSpacing: 0.2,
         color: ThemeColors.gray[100]
       ),
       decoration: InputDecoration(
@@ -153,6 +165,7 @@ class _SearchComponentState extends State<SearchComponent> {
         contentPadding: EdgeInsets.fromLTRB(44,0,42,0),
         hintText: "Buscar",
         hintStyle: TextStyle(
+          letterSpacing: 0.2,
           color: ThemeColors.gray[300]
         )
       ),
@@ -176,6 +189,7 @@ class _SearchComponentState extends State<SearchComponent> {
             child: Text(
               "Filtros",
               style: TextStyle(
+                letterSpacing: 0.2,
                 color: ThemeColors.gray[200]
               ),
             ),
@@ -232,7 +246,9 @@ class _SearchComponentState extends State<SearchComponent> {
         );
       }
     }
-    return ListView(children: gridItems);
+    return ListView(
+      children: gridItems
+    );
   }
 
   Widget gridItem(Size size, Carta card) {
@@ -350,6 +366,7 @@ class _SearchComponentState extends State<SearchComponent> {
                 card.fuerza != null ? card.fuerza.toString() : "",
                 style: TextStyle(
                   fontSize: 20,
+                  letterSpacing: 0.2,
                   color: ThemeColors.gray[100],
                   fontFamily: "SF Pro Text Bold",
                   fontWeight: FontWeight.w700
@@ -359,6 +376,7 @@ class _SearchComponentState extends State<SearchComponent> {
                 card.coste.toString(),
                 style: TextStyle(
                   fontSize: 20,
+                  letterSpacing: 0.2,
                   color: ThemeColors.gray[100],
                   fontFamily: "SF Pro Text Bold",
                   fontWeight: FontWeight.w700
@@ -386,6 +404,7 @@ class _SearchComponentState extends State<SearchComponent> {
               style: TextStyle(
                 color: ThemeColors.gray[100],
                 fontSize: 20,
+                letterSpacing: 0.2,
                 fontWeight: FontWeight.w700,
                 fontFamily: "SF Pro Text Bold",
                 height: 1.2
@@ -396,6 +415,7 @@ class _SearchComponentState extends State<SearchComponent> {
               style: TextStyle(
                 color: ThemeColors.gray[100],
                 fontSize: 14,
+                letterSpacing: 0.2,
                 fontWeight: FontWeight.w300,
                 fontFamily: "SF Pro Text Light",
                 height: 1.428
@@ -407,6 +427,7 @@ class _SearchComponentState extends State<SearchComponent> {
               style: TextStyle(
                 color: ThemeColors.gray[100],
                 fontSize: 14,
+                letterSpacing: 0.2,
                 fontWeight: FontWeight.w300,
                 fontStyle: FontStyle.italic,
                 fontFamily: "SF Pro Text Light",
@@ -432,7 +453,8 @@ class _SearchComponentState extends State<SearchComponent> {
               style: TextStyle(
                 color: ThemeColors.gray[100],
                 fontWeight: FontWeight.w600,
-                fontSize: 12
+                fontSize: 12,
+                letterSpacing: 0.2,
               ),
             ),
             SizedBox(height: 8),
@@ -442,7 +464,8 @@ class _SearchComponentState extends State<SearchComponent> {
                 color: ThemeColors.gray[100],
                 fontFamily: "SF Pro Text Light",
                 fontWeight: FontWeight.w300,
-                fontSize: 12
+                fontSize: 12,
+                letterSpacing: 0.2,
               ),
             ),
             widget.editing
@@ -477,7 +500,8 @@ class _SearchComponentState extends State<SearchComponent> {
                     "Banquillo",
                     style: TextStyle(
                       color: ThemeColors.gray[200],
-                      fontSize: 12
+                      fontSize: 12,
+                      letterSpacing: 0.2,
                     ),
                   ),
                 ),
@@ -502,7 +526,8 @@ class _SearchComponentState extends State<SearchComponent> {
                     "Mazo principal",
                     style: TextStyle(
                       color: ThemeColors.gray[100],
-                      fontSize: 12
+                      fontSize: 12,
+                      letterSpacing: 0.2,
                     ),
                   ),
                 ),
@@ -540,7 +565,8 @@ class _SearchComponentState extends State<SearchComponent> {
                     "Ver imagen",
                     style: TextStyle(
                       color: ThemeColors.gray[200],
-                      fontSize: 12
+                      fontSize: 12,
+                      letterSpacing: 0.2,
                     ),
                   ),
                 ),
@@ -576,7 +602,8 @@ class _SearchComponentState extends State<SearchComponent> {
                         "Volver",
                         style: TextStyle(
                           color: ThemeColors.gray[300],
-                          fontSize: 16
+                          fontSize: 16,
+                          letterSpacing: 0.2,
                         ),
                       )
                     )
