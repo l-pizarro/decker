@@ -1,3 +1,4 @@
+import 'package:decker/globals.dart';
 import 'package:flutter/material.dart';
 
 // Components
@@ -5,6 +6,7 @@ import 'package:decker/components/SearchComponent.dart';
 
 // Models
 import 'package:decker/models/Carta.dart';
+import 'package:decker/models/Mazo.dart';
 
 // Widgets
 import 'package:decker/widgets/PageContainer.dart';
@@ -37,6 +39,7 @@ class _MainViewState extends State<MainView> {
   List<Carta> cardList = List<Carta>();
   List<Carta> filteredCards = List<Carta>();
   List<Carta> queryCards = List<Carta>();
+  List<Mazo> userDecks;
   List cardTypes = [];
   List cardFrecuencies = [];
   List cardEditions = [];
@@ -62,6 +65,7 @@ class _MainViewState extends State<MainView> {
       this.cardTypes = DB.getTipoCartas();
       this.cardFrecuencies = DB.getFrecuencias();
       this.cardEditions = DB.getEdiciones();
+      this.userDecks = DB.getMazos();
       this.cardLoading = false;
     });
   }
@@ -156,7 +160,11 @@ class _MainViewState extends State<MainView> {
         },
         queryCallBack: this.updateListFromQuery,
       ),
-      MyDecks(),
+      MyDecks(
+        deckList: userDecks,
+        cardList: cardList,
+        loading: cardLoading
+      ),
       Column(children: <Widget>[Text("Crear mazo")]),
       Column(children: <Widget>[Text("Favoritos")]),
       Column(children: <Widget>[Text("Mi perfil")]),
@@ -167,17 +175,41 @@ class _MainViewState extends State<MainView> {
       body: Stack(
         children: <Widget>[
           PageContainer(size: size, selectedPage: _selectedPage, pages: pages),
-          BottomNav(size: size, selectedPage: _selectedPage, onBottomNavClick: handleBottomNavClick,)
+          BottomNav(size: size, selectedPage: _selectedPage, onBottomNavClick: handleBottomNavClick)
         ],
       ),
-      endDrawer: drawer(size)
+      endDrawer: drawer(size),
+      drawerEdgeDragWidth: _selectedPage == 0 ? size.width * 0.05 : 0,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      floatingActionButton: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ClipOval(
+                child: Material(
+                  color: Colors.blue, // button color
+                  child: InkWell(
+                    splashColor: Colors.red, // inkwell color
+                    child: SizedBox(width: 24, height: 24, child: Center(child: Text("A"))),
+                    onTap: () {
+                      isAuthenticated = !isAuthenticated;
+                    },
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 
   Widget drawer(Size size) {
     return Drawer(
       child: Container(
-        color: ThemeColors.gray[700],
+        color: ThemeColors.gray[600],
         child: SafeArea(
           child: Padding(
             padding: EdgeInsets.symmetric(

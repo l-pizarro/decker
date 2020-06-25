@@ -1,4 +1,6 @@
+//Models
 import 'package:decker/models/Carta.dart';
+import 'package:decker/models/Mazo.dart';
 
 class DB {
   static getCartas() {
@@ -263,6 +265,19 @@ class DB {
         habilidad: "Cuando entra en juego o sea Descartado, si sólo controlas Bestias, crea dos Bestias de Fuerza 2. Puedes quitar un contador de Alimento de una Bestia que controles o Destruir una Bestia que controles para Robar dos cartas",
         atributos: ["Furia", "Inmunidad - Aliados oponentes"]
       ),
+      Carta(
+        id: 21,
+        nombre: "Santuario Yoruba",
+        pathImage: "https://api.myl.cl/static/cards/36/267.png",
+        fuerza: null,
+        coste: 2,
+        edicion: 1,
+        tipoCarta: 5,
+        raza: null,
+        frecuencia: 5,
+        habilidad: "Para construir este Monumento debes tener seis o más cartas en tu Cementerio. Construcción: Pon un Aliado de tu Cementerio de Fuerza 4 o menos en juego. Progreso: Si dos o más cartas fueron puestas en tu Cementerio este turno, pon un contador de tiempo sobre este Monumento. Finalización: Las cartas en tu Cementerio tienen Exhumar hasta la Fase Final.",
+        atributos: ["Furia", "Inmunidad - Aliados oponentes"]
+      ),
       
     ];
   }
@@ -305,6 +320,245 @@ class DB {
       {"id": 3, "nombre": "Real"},
       {"id": 4, "nombre": "Cortesano"},
       {"id": 5, "nombre": "Vasallo"},
+      {"id": 6, "nombre": "Promo"},
+    ];
+  }
+
+  static getMazos() {
+    return [
+      Mazo(
+        id: 1,
+        nombre: "Mazo faerie mix",
+        formato: "Imperio",
+        main: [
+          {"id": 1, "amount" : 3},
+          {"id": 2, "amount" : 3},
+          {"id": 3, "amount" : 3},
+          {"id": 4, "amount" : 3},
+          {"id": 5, "amount" : 3},
+          {"id": 6, "amount" : 3},
+          {"id": 7, "amount" : 3},
+          {"id": 8, "amount" : 3},
+          {"id": 9, "amount" : 3},
+          {"id": 10, "amount" : 3},
+
+          {"id": 11, "amount" : 3},
+          {"id": 12, "amount" : 3},
+          {"id": 13, "amount" : 3},
+          {"id": 14, "amount" : 3},
+          {"id": 15, "amount" : 3},
+          {"id": 16, "amount" : 3},
+          {"id": 17, "amount" : 2},
+        ],
+        side: [
+          {"id": 18, "amount" : 5},
+          {"id": 19, "amount" : 5},
+        ],
+        monument: 21
+      ),
+      Mazo(
+        id: 2,
+        nombre: "Mazo bestia mix",
+        formato: "Imperio",
+        main: [
+          {"id": 7, "amount" : 3},
+          {"id": 2, "amount" : 3},
+          {"id": 3, "amount" : 3},
+          {"id": 4, "amount" : 3},
+          {"id": 5, "amount" : 3},
+          {"id": 6, "amount" : 3},
+          {"id": 1, "amount" : 3},
+          {"id": 8, "amount" : 3},
+          {"id": 9, "amount" : 3},
+          {"id": 10, "amount" : 3},
+          {"id": 11, "amount" : 3},
+          {"id": 12, "amount" : 3},
+          {"id": 13, "amount" : 2},
+          {"id": 14, "amount" : 3},
+          {"id": 15, "amount" : 3},
+          {"id": 16, "amount" : 3},
+          {"id": 17, "amount" : 3},
+        ],
+        side: [
+          {"id": 18, "amount" : 5},
+          {"id": 19, "amount" : 5},
+        ],
+        monument: 21
+      ),
+      Mazo(
+        id: 3,
+        nombre: "Mazo dragon mix",
+        formato: "Imperio",
+        main: [
+          {"id": 2, "amount" : 3},
+          {"id": 1, "amount" : 3},
+          {"id": 3, "amount" : 3},
+          {"id": 4, "amount" : 3},
+          {"id": 5, "amount" : 3},
+          {"id": 6, "amount" : 3},
+          {"id": 7, "amount" : 3},
+          {"id": 8, "amount" : 3},
+          {"id": 9, "amount" : 3},
+          {"id": 10, "amount" : 3},
+          {"id": 11, "amount" : 3},
+          {"id": 12, "amount" : 3},
+          {"id": 13, "amount" : 2},
+          {"id": 14, "amount" : 3},
+          {"id": 15, "amount" : 3},
+          {"id": 16, "amount" : 3},
+          {"id": 17, "amount" : 3},
+        ],
+        side: [
+          {"id": 18, "amount" : 5},
+          {"id": 19, "amount" : 5},
+        ],
+        monument: 21
+      ),
+      Mazo(
+        id: 4,
+        nombre: "Mazo dragon mix",
+        formato: "Imperio",
+        main: [
+          {"id": 2, "amount" : 3},
+          {"id": 1, "amount" : 3},
+          {"id": 3, "amount" : 3},
+          {"id": 4, "amount" : 3},
+          {"id": 5, "amount" : 3},
+          {"id": 6, "amount" : 3},
+          {"id": 7, "amount" : 3},
+          {"id": 8, "amount" : 3},
+          {"id": 9, "amount" : 3},
+          {"id": 10, "amount" : 3},
+          {"id": 11, "amount" : 3},
+          {"id": 12, "amount" : 3},
+          {"id": 13, "amount" : 2},
+          {"id": 14, "amount" : 3},
+          {"id": 15, "amount" : 3},
+          {"id": 16, "amount" : 3},
+          {"id": 17, "amount" : 3},
+        ],
+        side: [
+          {"id": 18, "amount" : 5},
+          {"id": 19, "amount" : 5},
+        ],
+        monument: 21
+      ),
+      Mazo(
+        id: 5,
+        nombre: "Mazo dragon mix",
+        formato: "Imperio",
+        main: [
+          {"id": 2, "amount" : 3},
+          {"id": 1, "amount" : 3},
+          {"id": 3, "amount" : 3},
+          {"id": 4, "amount" : 3},
+          {"id": 5, "amount" : 3},
+          {"id": 6, "amount" : 3},
+          {"id": 7, "amount" : 3},
+          {"id": 8, "amount" : 3},
+          {"id": 9, "amount" : 3},
+          {"id": 10, "amount" : 3},
+          {"id": 11, "amount" : 3},
+          {"id": 12, "amount" : 3},
+          {"id": 13, "amount" : 2},
+          {"id": 14, "amount" : 3},
+          {"id": 15, "amount" : 3},
+          {"id": 16, "amount" : 3},
+          {"id": 17, "amount" : 3},
+        ],
+        side: [
+          {"id": 18, "amount" : 5},
+          {"id": 19, "amount" : 5},
+        ],
+        monument: 21
+      ),
+      Mazo(
+        id: 6,
+        nombre: "Mazo dragon mix",
+        formato: "Imperio",
+        main: [
+          {"id": 2, "amount" : 3},
+          {"id": 1, "amount" : 3},
+          {"id": 3, "amount" : 3},
+          {"id": 4, "amount" : 3},
+          {"id": 5, "amount" : 3},
+          {"id": 6, "amount" : 3},
+          {"id": 7, "amount" : 3},
+          {"id": 8, "amount" : 3},
+          {"id": 9, "amount" : 3},
+          {"id": 10, "amount" : 3},
+          {"id": 11, "amount" : 3},
+          {"id": 12, "amount" : 3},
+          {"id": 13, "amount" : 2},
+          {"id": 14, "amount" : 3},
+          {"id": 15, "amount" : 3},
+          {"id": 16, "amount" : 3},
+          {"id": 17, "amount" : 3},
+        ],
+        side: [
+          {"id": 18, "amount" : 5},
+          {"id": 19, "amount" : 5},
+        ],
+        monument: 21
+      ),
+      Mazo(
+        id: 7,
+        nombre: "Mazo dragon mix",
+        formato: "Imperio",
+        main: [
+          {"id": 2, "amount" : 3},
+          {"id": 1, "amount" : 3},
+          {"id": 3, "amount" : 3},
+          {"id": 4, "amount" : 3},
+          {"id": 5, "amount" : 3},
+          {"id": 6, "amount" : 3},
+          {"id": 7, "amount" : 3},
+          {"id": 8, "amount" : 3},
+          {"id": 9, "amount" : 3},
+          {"id": 10, "amount" : 3},
+          {"id": 11, "amount" : 3},
+          {"id": 12, "amount" : 3},
+          {"id": 13, "amount" : 2},
+          {"id": 14, "amount" : 3},
+          {"id": 15, "amount" : 3},
+          {"id": 16, "amount" : 3},
+          {"id": 17, "amount" : 3},
+        ],
+        side: [
+          {"id": 18, "amount" : 5},
+          {"id": 19, "amount" : 5},
+        ],
+        monument: 21
+      ),
+      Mazo(
+        id: 8,
+        nombre: "Mazo dragon mix",
+        formato: "Imperio",
+        main: [
+          {"id": 2, "amount" : 3},
+          {"id": 1, "amount" : 3},
+          {"id": 3, "amount" : 3},
+          {"id": 4, "amount" : 3},
+          {"id": 5, "amount" : 3},
+          {"id": 6, "amount" : 3},
+          {"id": 7, "amount" : 3},
+          {"id": 8, "amount" : 3},
+          {"id": 9, "amount" : 3},
+          {"id": 10, "amount" : 3},
+          {"id": 11, "amount" : 3},
+          {"id": 12, "amount" : 3},
+          {"id": 13, "amount" : 2},
+          {"id": 14, "amount" : 3},
+          {"id": 15, "amount" : 3},
+          {"id": 16, "amount" : 3},
+          {"id": 17, "amount" : 3},
+        ],
+        side: [
+          {"id": 18, "amount" : 5},
+          {"id": 19, "amount" : 5},
+        ],
+        monument: 21
+      )
     ];
   }
 

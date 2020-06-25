@@ -8,11 +8,13 @@ class NoLoggedComponent extends StatefulWidget {
   final String message;
   final Function() loginCallback;
   final Function() registerCallback;
+  final bool loading;
 
   NoLoggedComponent({
     this.message,
     this.loginCallback,
     this.registerCallback,
+    this.loading
   });
 
   @override
@@ -114,7 +116,7 @@ class _NoLoggedComponentState extends State<NoLoggedComponent> {
               ),
             ),
           ),
-        )
+        ),
       ],
     );
   }

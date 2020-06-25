@@ -27,11 +27,9 @@ class _PageContainerState extends State<PageContainer> {
     return Container(
       color: ThemeColors.gray[600],
       width: widget.size.width,
-      child: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: widget.pages[widget.selectedPage],
-        )
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: widget.pages[widget.selectedPage],
       )
     );
   }

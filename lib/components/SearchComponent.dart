@@ -52,19 +52,26 @@ class _SearchComponentState extends State<SearchComponent> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: ThemeColors.gray[600],
-      body: widget.loading
-      ? Center(
-        child: loadingIndicator(size)
+      body: SafeArea(
+        child: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            return widget.loading
+            ? Center(
+              child: loadingIndicator(size)
+            )
+            : body(size, constraints);
+          },
+        )
       )
-      : body(size)
     );
   }
 
-  Widget body(Size size) {
+  Widget body(Size size, BoxConstraints constraints) {
     return showSelectedCard
     ? fullCard(size)
     : Column(
       children: <Widget>[
+        SizedBox(height: size.width * 0.02),
         Row(
           children: <Widget>[
             textInput(context),
@@ -76,7 +83,9 @@ class _SearchComponentState extends State<SearchComponent> {
         Expanded(
           child: this.showGrid ? cardGrid(size) : cardList(size)
         ),
-        SizedBox(height: 64)
+        Container(
+          height: 56 + (size.width * 0.098) - ((size.height - constraints.maxHeight)/2)
+        )
       ],
     );
   }
@@ -232,7 +241,7 @@ class _SearchComponentState extends State<SearchComponent> {
       for (var i = 0; i < widget.cards.length; i+=2) {
         gridItems.add(
           Padding(
-            padding: const EdgeInsets.only(bottom: 24),
+            padding: const EdgeInsets.only(bottom: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
@@ -289,7 +298,7 @@ class _SearchComponentState extends State<SearchComponent> {
           listItemTopSection(size, card),
           this.showTextCard == card.id
           ? listItemBottomSection(card)
-          : Container()
+          : Container(),
         ],
       ),
     );
