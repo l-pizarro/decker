@@ -1,4 +1,3 @@
-import 'package:decker/globals.dart';
 import 'package:flutter/material.dart';
 
 // Components
@@ -179,30 +178,7 @@ class _MainViewState extends State<MainView> {
         ],
       ),
       endDrawer: drawer(size),
-      drawerEdgeDragWidth: _selectedPage == 0 ? size.width * 0.05 : 0,
-      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-      floatingActionButton: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ClipOval(
-                child: Material(
-                  color: Colors.blue, // button color
-                  child: InkWell(
-                    splashColor: Colors.red, // inkwell color
-                    child: SizedBox(width: 24, height: 24, child: Center(child: Text("A"))),
-                    onTap: () {
-                      isAuthenticated = !isAuthenticated;
-                    },
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+      drawerEdgeDragWidth: _selectedPage == 0 ? size.width * 0.05 : 0
     );
   }
 

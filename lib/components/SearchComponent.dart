@@ -241,7 +241,7 @@ class _SearchComponentState extends State<SearchComponent> {
       for (var i = 0; i < widget.cards.length; i+=2) {
         gridItems.add(
           Padding(
-            padding: const EdgeInsets.only(bottom: 20),
+            padding: EdgeInsets.only(bottom: 16),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
