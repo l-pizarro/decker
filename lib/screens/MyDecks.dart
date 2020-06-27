@@ -68,8 +68,11 @@ class _MyDecksState extends State<MyDecks> {
   void updateListFromQuery() {
     List<Mazo> updatedList = [];
     String buffer = removeDiacritics(this.query.trim().toLowerCase());
+    print("Buffer = " + buffer);
     widget.deckList.forEach((deck) {
-      if (deck.nombre.contains(buffer)) {
+      print("   Deck name = " + deck.nombre);
+      print("   Contians?? " + deck.nombre.contains(buffer).toString()); 
+      if (deck.nombre.toLowerCase().contains(buffer)) {
         updatedList.add(deck);
       }
     });

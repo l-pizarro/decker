@@ -328,7 +328,7 @@ class DB {
     return [
       Mazo(
         id: 1,
-        nombre: "B Mazo mas antiguo",
+        nombre: "Bb Mazo mas antiguo",
         formato: "Imperio",
         main: [
           {"id": 1, "amount" : 3},
@@ -359,7 +359,7 @@ class DB {
       ),
       Mazo(
         id: 2,
-        nombre: "A Mazo mas reciente",
+        nombre: "Aa Mazo mas reciente",
         formato: "Imperio",
         main: [
           {"id": 7, "amount" : 3},
@@ -386,7 +386,7 @@ class DB {
       ),
       Mazo(
         id: 3,
-        nombre: "C Mazo",
+        nombre: "Cc Mazo",
         formato: "Imperio",
         main: [
           {"id": 2, "amount" : 3},
