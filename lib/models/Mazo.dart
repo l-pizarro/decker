@@ -5,6 +5,7 @@ class Mazo {
   List<Map<String, int>> main;
   List<Map<String, int>> side;
   int monument;
+  int date; // Just for sort pourposes
 
   Mazo({
     this.id,
@@ -12,6 +13,7 @@ class Mazo {
     this.formato,
     this.main,
     this.side,
-    this.monument
+    this.monument,
+    this.date
   });
 }

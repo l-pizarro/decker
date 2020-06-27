@@ -328,7 +328,7 @@ class DB {
     return [
       Mazo(
         id: 1,
-        nombre: "Mazo faerie mix",
+        nombre: "B Mazo mas antiguo",
         formato: "Imperio",
         main: [
           {"id": 1, "amount" : 3},
@@ -354,11 +354,12 @@ class DB {
           {"id": 18, "amount" : 5},
           {"id": 19, "amount" : 5},
         ],
-        monument: 21
+        monument: 21,
+        date: 100
       ),
       Mazo(
         id: 2,
-        nombre: "Mazo bestia mix",
+        nombre: "A Mazo mas reciente",
         formato: "Imperio",
         main: [
           {"id": 7, "amount" : 3},
@@ -380,11 +381,12 @@ class DB {
           {"id": 17, "amount" : 3},
         ],
         side: [],
-        monument: 21
+        monument: 21,
+        date: 80
       ),
       Mazo(
         id: 3,
-        nombre: "Mazo dragon mix",
+        nombre: "C Mazo",
         formato: "Imperio",
         main: [
           {"id": 2, "amount" : 3},
@@ -409,7 +411,8 @@ class DB {
           {"id": 18, "amount" : 5},
           {"id": 19, "amount" : 5},
         ],
-        monument: null
+        monument: null,
+        date: 90
       ),
     ];
   }

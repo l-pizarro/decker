@@ -53,6 +53,7 @@ class _MyDecksState extends State<MyDecks> {
 
   void initState() {
     this.filteredDecks = widget.deckList;
+    filteredDecks.sort((a, b) => a.date.compareTo(b.date));
     super.initState();
   }
 
@@ -75,6 +76,27 @@ class _MyDecksState extends State<MyDecks> {
     setState(() {
       this.filteredDecks = updatedList;
     });
+  }
+
+  void sortDecks() {
+     if (sortBy == "Más recientes primero") {
+      filteredDecks.sort((a, b) => a.date.compareTo(b.date));
+    }
+     if (sortBy == "Más antiguos primero") {
+      filteredDecks.sort((a, b) => a.date.compareTo(b.date));
+      setState(() {
+        this.filteredDecks = this.filteredDecks.reversed.toList();
+      });
+    }
+    if (sortBy == "Alfabéticamente A-Z") {
+       filteredDecks.sort((a, b) => a.nombre.toLowerCase().compareTo(b.nombre.toLowerCase()));
+    }
+    if (sortBy == "Alfabéticamente Z-A") {
+      filteredDecks.sort((a, b) => a.nombre.toLowerCase().compareTo(b.nombre.toLowerCase()));
+      setState(() {
+        this.filteredDecks = this.filteredDecks.reversed.toList();
+      });
+    }
   }
 
   @override
@@ -195,9 +217,12 @@ class _MyDecksState extends State<MyDecks> {
                     value: this.sortBy,
                     icon: Icon(FeatherIcons.chevronDown, color: ThemeColors.gray[400]),
                     onChanged: (newValue) {
-                      setState(() {
-                        this.sortBy = newValue;
-                      });
+                      if (newValue != this.sortBy) {
+                        setState(() {
+                          this.sortBy = newValue;
+                        });
+                        this.sortDecks();
+                      }
                     },
                     items: this.sortOptions.map((val) {
                       return DropdownMenuItem(
