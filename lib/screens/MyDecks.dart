@@ -110,7 +110,7 @@ class _MyDecksState extends State<MyDecks> {
         builder: (BuildContext context, BoxConstraints constraints) {
           return !isAuthenticated
           ? NoLoggedComponent(
-            message: "crear mazos",
+            message: "ver tus mazos",
             loginCallback: handleLoginCallback,
             registerCallback: handleRegisterCallback,
           )

@@ -50,18 +50,15 @@ class _SearchComponentState extends State<SearchComponent> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Scaffold(
-      backgroundColor: ThemeColors.gray[600],
-      body: SafeArea(
-        child: LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints constraints) {
-            return widget.loading
-            ? Center(
-              child: loadingIndicator(size)
-            )
-            : body(size, constraints);
-          },
-        )
+    return SafeArea(
+      child: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          return widget.loading
+          ? Center(
+            child: loadingIndicator(size)
+          )
+          : body(size, constraints);
+        },
       )
     );
   }
@@ -84,6 +81,7 @@ class _SearchComponentState extends State<SearchComponent> {
           child: this.showGrid ? cardGrid(size) : cardList(size)
         ),
         Container(
+          // Constrains causing a bug
           height: 56 + (size.width * 0.098) - ((size.height - constraints.maxHeight)/2)
         )
       ],

@@ -1,3 +1,4 @@
+import 'package:decker/screens/CreateDeck.dart';
 import 'package:flutter/material.dart';
 
 // Components
@@ -164,7 +165,10 @@ class _MainViewState extends State<MainView> {
         cardList: cardList,
         loading: cardLoading
       ),
-      Column(children: <Widget>[Text("Crear mazo")]),
+      CreateDeck(
+        cardList: cardList,
+        loading: cardLoading
+      ),
       Column(children: <Widget>[Text("Favoritos")]),
       Column(children: <Widget>[Text("Mi perfil")]),
     ];
